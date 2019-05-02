@@ -4,23 +4,19 @@
       <h1>#USER</h1>
       <h2>Welcome to QUANTAXIS</h2>
     </div>
-    <div id='textbox'>
+    <div id="textbox">
       <div>
-  
-        </mu-dropDown-menu>
+        <mu-dropDown-menu></mu-dropDown-menu>
       </div>
-  
-      <mu-text-field label="账户" hintText="请输入用户名" v-model="valuex" type="password" labelFloat/>
-      <br/>
+
+      <mu-text-field label="账户" hintText="请输入用户名" v-model="valuex" labelFloat/>
+      <br>
       <mu-text-field label="密码" hintText="请输入密码" type="password" labelFloat/>
-      <br/>
-      <mu-raised-button label="注册" @click="reg()" />
-      <mu-raised-button label="登陆" @click="login()" />
+      <br>
+      <mu-raised-button label="注册" @click="reg()"/>
+      <mu-raised-button label="登陆" @click="login()"/>
     </div>
-    <mu-popup position="top" :overlay="false" popupClass="demo-popup-top" :open="topPopup">
-      注册成功
-    </mu-popup>
-  
+    <mu-popup position="top" :overlay="false" popupClass="demo-popup-top" :open="topPopup">注册成功</mu-popup>
   </div>
 </template>
 <style lang="css">
@@ -35,7 +31,6 @@
   position: relative;
   width: 60%;
   height: 100%;
-  float: left;
   display: inline-block;
   margin: 10% 0%;
 }
@@ -45,13 +40,12 @@
   width: 30%;
   height: 100%;
   float: left;
-  display: inline-block;
   margin: 15% 0%;
 }
 
 .demo-popup-top {
   width: 100%;
-  opacity: .8;
+  opacity: 0.8;
   height: 48px;
   line-height: 48px;
   display: flex;
@@ -63,7 +57,6 @@
 <script>
 import axios from 'axios'
 
-
 export default {
   data() {
     return {
@@ -73,7 +66,6 @@ export default {
     }
   },
   methods: {
-
     handleChange(value) {
       this.value = value
     },
@@ -84,42 +76,47 @@ export default {
       this[position + 'Popup'] = false
     },
     reg() {
-      var name = document.getElementsByClassName('mu-text-field-input')[0].value
-      var password = document.getElementsByClassName('mu-text-field-input')[1].value
-      let val = 'name=' + name + '&password=' + password
+      var name = document.getElementsByClassName('mu-text-field-input')[0]
+        .value
+      var password = document.getElementsByClassName('mu-text-field-input')[1]
+        .value
+      const val = 'user=' + name + '&password=' + password
       console.log(val)
-      axios.get('http://localhost:3000/users/signup?' + val)
+      axios
+        .get('http://localhost:3000/user/signup?' + val)
         .then(response => {
           console.log(response.data)
-          if (response.data === 'success') {
+          if (response.data === 'SUCCESS') {
             this.open('top')
-          }
-          else {
+          } else {
             alert(response.data)
           }
         })
-        .catch(function (error) {
-          console.log(error);
-        });
+        .catch(function(error) {
+          console.log(error)
+        })
     },
 
     login() {
-      var name = document.getElementsByClassName('mu-text-field-input')[0].value
-      var password = document.getElementsByClassName('mu-text-field-input')[1].value
-      let val = 'name=' + name + '&password=' + password
+      var name = document.getElementsByClassName('mu-text-field-input')[0]
+        .value
+      var password = document.getElementsByClassName('mu-text-field-input')[1]
+        .value
+      const val = 'user=' + name + '&password=' + password
       console.log(val)
-      axios.get('http://localhost:3000/users/login?' + val)
+      axios
+        .get('http://localhost:3000/user/signin?' + val)
         .then(response => {
           console.log(response.data)
-          if (response.data === 'success') {
+          if (response.data === 'SUCCESS') {
             sessionStorage.user = name
             sessionStorage.password = password
-            this.$router.push('/personal/index');
+            this.$router.push('/personal/index')
           }
         })
-        .catch(function (error) {
-          console.log(error);
-        });
+        .catch(function(error) {
+          console.log(error)
+        })
     }
   },
   watch: {

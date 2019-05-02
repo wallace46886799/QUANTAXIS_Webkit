@@ -2,22 +2,20 @@
   <div id="app">
     <mu-appbar title="Title">
       <mu-flat-button class="quantaxislogo" color="white" style="-webkit-app-region: drag" disable slot="left">QUANTAXIS</mu-flat-button>
-      <mu-raised-button label="MENU" slot="right" @click="toggle()" />
+      <mu-raised-button label="菜单" slot="right" @click="toggle()" />
       <mu-drawer right :open="open" @close="toggle()">
-        <mu-appbar title="MENU" />
+        <mu-appbar title="菜单" />
         <mu-list>
-          <router-link to='/personal/index'>
-            <mu-list-item title="USER" />
-          </router-link>
           <router-link to='/'>
-            <mu-list-item title="HOME" />
+            <mu-list-item title="首页" />
           </router-link>
-  
+          <router-link to='/personal/index'>
+            <mu-list-item title="用户登录" />
+          </router-link>
           <router-link to='/start'>
-            <mu-list-item title="START" />
+            <mu-list-item title="下载指引" />
           </router-link>
-  
-          <mu-list-item @click.native="open = false" title="Close" />
+          <mu-list-item @click.native="open = false" title="关闭" />
         </mu-list>
       </mu-drawer>
     </mu-appbar>

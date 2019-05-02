@@ -1,10 +1,17 @@
 ## quantaxisweb ![NPM version](https://img.shields.io/npm/v/quantaxisweb.svg?style=flat)
 
-A Vue.js project
+A Vue.js project.  
+
+https://github.com/yutiansut/QUANTAXIS_Webkit
 
 ### Installation
 ```bash
 $ npm install quantaxisweb
+```
+
+### Running
+```bash
+$ npm run dev
 ```
 
 ### Example

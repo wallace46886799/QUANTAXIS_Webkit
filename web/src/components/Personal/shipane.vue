@@ -6,33 +6,28 @@
   </div>
 </template>
 
-<script>        
+<script>
 import axios from 'axios'
 
 export default {
   name: 'shipan-e',
-  data: function () {
+  data: function() {
     return {
       positions: []
-
     }
   },
   methods: {
     query_positions() {
-      axios.get('http://localhost:8888/positions')
-        .then(function (response) {
-          var data1 = response.data;
-          console.log(data1)
-        })
+      axios.get('http://localhost:8888/positions').then(function(response) {
+        var data1 = response.data
+        console.log(data1)
+      })
     }
-
   },
   mounted() {
-    this.$nextTick(function () {
+    this.$nextTick(function() {
       this.query_positions()
     })
-
-
   }
 }
 /**
@@ -118,6 +113,6 @@ PUT http://localhost:8888/clients
 
 关闭所有通达信
 DELETE http://localhost:8888/clients
-                
+
 */
 </script>
