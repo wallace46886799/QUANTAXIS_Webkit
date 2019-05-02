@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     query_positions() {
-      axios.get('http://localhost:8888/positions').then(function(response) {
+      axios.get(process.env.BASE_API + 'positions').then(function(response) {
         var data1 = response.data
         console.log(data1)
       })

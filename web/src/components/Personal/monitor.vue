@@ -94,7 +94,7 @@ export default {
       })
     },
     querybyname(code) {
-      const val = 'http://localhost:3000/marketdata/stock/day?code=' + code
+      const val = process.env.BASE_API + 'marketdata/stock/day?code=' + code
       axios
         .get(val)
         .then(response => {

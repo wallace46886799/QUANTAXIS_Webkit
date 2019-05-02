@@ -68,7 +68,7 @@ export default {
       const val = message
       // console.log(val)
       axios
-        .get('http://localhost:3000/backtest/info?name=' + val)
+        .get(process.env.BASE_API + 'backtest/info?name=' + val)
         .then(response => {
           this.items = response.data
           console.log(this.items)
@@ -84,7 +84,7 @@ export default {
       const val = message
       // console.log(val)
       axios
-        .get('http://localhost:3000/backtest/info_code?code=' + val)
+        .get(process.env.BASE_API + 'backtest/info_code?code=' + val)
         .then(response => {
           this.items = response.data
           console.log(this.items)

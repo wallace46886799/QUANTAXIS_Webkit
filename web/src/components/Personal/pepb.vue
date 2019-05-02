@@ -61,7 +61,7 @@ export default {
     },
     querybycode(code) {
       axios
-        .get('http://localhost:3000/pepb?code=' + code)
+        .get(process.env.BASE_API + 'pepb?code=' + code)
         .then(response => {
           this.items = response.data.stock_prices
           this.length = this.items.length

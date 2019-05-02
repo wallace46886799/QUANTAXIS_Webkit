@@ -52,7 +52,7 @@ export default {
   methods: {
     ready() {
       axios
-        .get('http://localhost:3000/stocklist')
+        .get(process.env.BASE_API + 'stocklist')
         .then(response => {
           this.items = response.data.result
           this.length = this.items.length

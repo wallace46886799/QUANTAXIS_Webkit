@@ -60,7 +60,7 @@ export default {
       const val = this.message
       console.log(val)
       axios
-        .get('http://localhost:3000/backtest/history?cookie=' + val)
+        .get(process.env.BASE_API + 'backtest/history?cookie=' + val)
         .then(response => {
           this.items = response.data[0]['history']
           this.acc = response.data

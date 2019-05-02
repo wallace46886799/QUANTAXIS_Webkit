@@ -60,7 +60,7 @@ export default {
     },
     query() {
       axios
-        .get('http://localhost:3000/stock/history/all?code=600010&feq=day')
+        .get(process.env.BASE_API + 'stock/history/all?code=600010&feq=day')
         .then(function(response) {
           console.log(response.data[1])
           var data1 = response.data
@@ -75,7 +75,7 @@ export default {
       const val = 'code=' + message + '&feq=day'
       console.log(val)
       axios
-        .get('http://localhost:3000/stock/history/all?' + val)
+        .get(process.env.BASE_API + 'stock/history/all?' + val)
         .then(response => {
           this.items = response.data
           this.total = this.items.length

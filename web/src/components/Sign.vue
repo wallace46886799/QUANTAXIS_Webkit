@@ -83,7 +83,7 @@ export default {
       const val = 'user=' + name + '&password=' + password
       console.log(val)
       axios
-        .get('http://localhost:3000/user/signup?' + val)
+        .get(process.env.BASE_API + 'user/signup?' + val)
         .then(response => {
           console.log(response.data)
           if (response.data === 'SUCCESS') {
@@ -105,7 +105,7 @@ export default {
       const val = 'user=' + name + '&password=' + password
       console.log(val)
       axios
-        .get('http://localhost:3000/user/signin?' + val)
+        .get(process.env.BASE_API + 'user/signin?' + val)
         .then(response => {
           console.log(response.data)
           if (response.data === 'SUCCESS') {

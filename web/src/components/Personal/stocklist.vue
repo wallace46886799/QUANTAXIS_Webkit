@@ -68,7 +68,7 @@ export default {
         .value
       var data = { code: code }
       axios
-        .post('http://localhost:3000/stockfav', Qs.stringify(data))
+        .post(process.env.BASE_API + 'stockfav', Qs.stringify(data))
         .then(response => {
           console.log(response)
         })
@@ -81,7 +81,7 @@ export default {
         .value
       var data = { code: code }
       axios
-        .delete('http://localhost:3000/stockfav', { params: data })
+        .delete(process.env.BASE_API + 'stockfav', { params: data })
         .then(response => {
           console.log(response)
         })
@@ -103,8 +103,7 @@ export default {
     },
     query(page, page_size) {
       axios
-        .get(
-          'http://localhost:3000/stocklist?page=' +
+        .get(process.env.BASE_API + 'stocklist?page=' +
             page +
             '&page_size=' +
             page_size

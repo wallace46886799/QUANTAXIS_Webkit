@@ -67,7 +67,7 @@ export default {
   methods: {
     ready() {
       axios
-        .get('http://localhost:3000/backtest/info?name=' + sessionStorage.user)
+        .get(process.env.BASE_API + 'backtest/info?name=' + sessionStorage.user)
         .then(response => {
           this.items = response.data
           console.log(this.items)
